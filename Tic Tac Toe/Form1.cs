@@ -27,8 +27,10 @@ namespace Tic_Tac_Toe
         }
         void ChangeWindow()
         {
+            Hide();
             Form2 form2 = new Form2();
             form2.ShowDialog();
+            Close();
         }
     }
 }

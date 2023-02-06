@@ -89,6 +89,10 @@ namespace Tic_Tac_Toe
         {
             reset();
             labelScoreP1.Text = labelScoreP2.Text = "0";
+            Hide();
+            Form1 form1 = new Form1();
+            form1.ShowDialog();
+            Close();
         }
         bool hasWon(char symbol)
         {
