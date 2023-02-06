@@ -133,6 +133,7 @@
             this.pB9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pB9.TabIndex = 49;
             this.pB9.TabStop = false;
+            this.pB9.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pB8
             // 
@@ -144,6 +145,7 @@
             this.pB8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pB8.TabIndex = 48;
             this.pB8.TabStop = false;
+            this.pB8.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pB7
             // 
@@ -155,6 +157,7 @@
             this.pB7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pB7.TabIndex = 47;
             this.pB7.TabStop = false;
+            this.pB7.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pB6
             // 
@@ -166,6 +169,7 @@
             this.pB6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pB6.TabIndex = 46;
             this.pB6.TabStop = false;
+            this.pB6.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pB5
             // 
@@ -177,6 +181,7 @@
             this.pB5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pB5.TabIndex = 45;
             this.pB5.TabStop = false;
+            this.pB5.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pB4
             // 
@@ -188,6 +193,7 @@
             this.pB4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pB4.TabIndex = 44;
             this.pB4.TabStop = false;
+            this.pB4.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pB3
             // 
@@ -199,6 +205,7 @@
             this.pB3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pB3.TabIndex = 43;
             this.pB3.TabStop = false;
+            this.pB3.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pB2
             // 
@@ -210,6 +217,7 @@
             this.pB2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pB2.TabIndex = 42;
             this.pB2.TabStop = false;
+            this.pB2.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pB1
             // 
@@ -221,6 +229,7 @@
             this.pB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pB1.TabIndex = 41;
             this.pB1.TabStop = false;
+            this.pB1.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // btnReset
             // 
@@ -231,6 +240,7 @@
             this.btnReset.TabIndex = 40;
             this.btnReset.Text = "Resign";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // Form2
             // 
