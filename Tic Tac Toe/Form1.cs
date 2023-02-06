@@ -5,9 +5,14 @@ namespace Tic_Tac_Toe
 {
     public partial class Form1 : Form
     {
+        public static Form1 form1Instance;
+        public TextBox tbx;
+
         public Form1()
         {
             InitializeComponent();
+            form1Instance = this;
+            tbx = textBox1;
         }
 
         private void button1_Click(object sender, System.EventArgs e)
