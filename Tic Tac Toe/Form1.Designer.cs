@@ -110,9 +110,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 90);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.Size = new System.Drawing.Size(85, 13);
             this.label3.TabIndex = 64;
-            this.label3.Text = "Players waiting";
+            this.label3.Text = "Select opponent";
             // 
             // Form1
             // 

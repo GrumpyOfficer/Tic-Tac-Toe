@@ -7,12 +7,14 @@ namespace Tic_Tac_Toe
     {
         public static Form1 form1Instance;
         public TextBox tbx;
+        public ComboBox cmb;
 
         public Form1()
         {
             InitializeComponent();
             form1Instance = this;
             tbx = textBox1;
+            cmb = comboBox1;
             SetPlayers();
         }
 
@@ -50,7 +52,7 @@ namespace Tic_Tac_Toe
         }
         void SetPlayers()
         {
-            string[] players = {"Test1", "Test2"};
+            string[] players = {"", "Computer", "Solo" };
             for (int i=0; i < players.Length; i++) 
             {
                 comboBox1.Items.Add(players[i]);

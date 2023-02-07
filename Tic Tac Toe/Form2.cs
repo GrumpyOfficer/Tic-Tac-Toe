@@ -10,7 +10,7 @@ namespace Tic_Tac_Toe
         public Form2()
         {
             InitializeComponent(); 
-            reset();
+            Reset();
             nameP1.Text = nameP2.Text = Form1.form1Instance.tbx.Text;
         }
 
@@ -20,49 +20,100 @@ namespace Tic_Tac_Toe
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            resign();
+            Reset();
+            labelScoreP1.Text = labelScoreP2.Text = "0";
+            Hide();
+            Form1 form1 = new Form1();
+            form1.ShowDialog();
+            Close();
         }
         private void pictureBox_Click(object sender, EventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
-            switch (pb.Name)
+            if (Form1.form1Instance.cmb.Text == "Solo")
             {
-                case "pB1":
-                    f1 = click(f1, pb);
-                    break;
-                case "pB2":
-                    f2 = click(f2, pb);
-                    break;
-                case "pB3":
-                    f3 = click(f3, pb);
-                    break;
-                case "pB4":
-                    f4 = click(f4, pb);
-                    break;
-                case "pB5":
-                    f5 = click(f5, pb);
-                    break;
-                case "pB6":
-                    f6 = click(f6, pb);
-                    break;
-                case "pB7":
-                    f7 = click(f7, pb);
-                    break;
-                case "pB8":
-                    f8 = click(f8, pb);
-                    break;
-                case "pB9":
-                    f9 = click(f9, pb);
-                    break;
+                switch (pb.Name)
+                {
+                    case "pB1":
+                        f1 = Click(f1, pb);
+                        break;
+                    case "pB2":
+                        f2 = Click(f2, pb);
+                        break;
+                    case "pB3":
+                        f3 = Click(f3, pb);
+                        break;
+                    case "pB4":
+                        f4 = Click(f4, pb);
+                        break;
+                    case "pB5":
+                        f5 = Click(f5, pb);
+                        break;
+                    case "pB6":
+                        f6 = Click(f6, pb);
+                        break;
+                    case "pB7":
+                        f7 = Click(f7, pb);
+                        break;
+                    case "pB8":
+                        f8 = Click(f8, pb);
+                        break;
+                    case "pB9":
+                        f9 = Click(f9, pb);
+                        break;
+                }
             }
-            win();
+            if (Form1.form1Instance.cmb.Text == "Computer")
+            {
+                switch (pb.Name)
+                {
+                    case "pB1":
+                        f1 = Click(f1, pb);
+                        ClickKI();                      
+                        break;
+                    case "pB2":
+                        f2 = Click(f2, pb);
+                        ClickKI();
+                        break;
+                    case "pB3":
+                        f3 = Click(f3, pb);
+                        ClickKI();
+                        break;
+                    case "pB4":
+                        f4 = Click(f4, pb);
+                        ClickKI();
+                        break;
+                    case "pB5":
+                        f5 = Click(f5, pb);
+                        ClickKI();
+                        break;
+                    case "pB6":
+                        f6 = Click(f6, pb);
+                        ClickKI();
+                        break;
+                    case "pB7":
+                        f7 = Click(f7, pb);
+                        ClickKI();
+                        break;
+                    case "pB8":
+                        f8 = Click(f8, pb);
+                        ClickKI();
+                        break;
+                    case "pB9":
+                        f9 = Click(f9, pb);
+                        ClickKI();
+                        break;
+                }
+            }
+            
+            Win();
         }
 
-        char click(char field, PictureBox pB)
+        char Click(char field, PictureBox pB)
         {
             if (field == 'n' && player == false)
             {
-                pB.Image = Properties.Resources.X;
+                pB.Image = Resources.X;
                 pB.Refresh();
                 field = 'x';
                 clicks++;
@@ -70,7 +121,7 @@ namespace Tic_Tac_Toe
             }
             else if (field == 'n' && player)
             {
-                pB.Image = Properties.Resources.O;
+                pB.Image = Resources.O;
                 pB.Refresh();
                 field = 'o';
                 clicks++;
@@ -78,7 +129,65 @@ namespace Tic_Tac_Toe
             }
             return field;
         }
-        void reset()
+        void ClickKI()
+        {
+            if (Random() == 1 && f1 == 'n')
+            {
+                pB1.Image = Resources.O;
+                pB1.Refresh();
+                player = false;
+            }
+            else if (Random() == 2 && f2 == 'n')
+            {
+                pB2.Image = Resources.O;
+                pB2.Refresh();
+                player = false;
+            }
+            else if (Random() == 3 && f3 == 'n')
+            {
+                pB3.Image = Resources.O;
+                pB3.Refresh();
+                player = false;
+            }
+            else if (Random() == 4 && f4 == 'n')
+            {
+                pB4.Image = Resources.O;
+                pB4.Refresh();
+                player = false;
+            }
+            else if (Random() == 5 && f5 == 'n')
+            {
+                pB5.Image = Resources.O;
+                pB5.Refresh();
+                player = false;
+            }
+            else if (Random() == 6 && f6 == 'n')
+            {
+                pB6.Image = Resources.O;
+                pB6.Refresh();
+                player = false;
+            }
+            else if (Random() == 7 && f7 == 'n')
+            {
+                pB7.Image = Resources.O;
+                pB7.Refresh();
+                player = false;
+            }
+            else if (Random() == 8 && f8 == 'n')
+            {
+                pB8.Image = Resources.O;
+                pB8.Refresh();
+                player = false;
+            }
+            else if (Random() == 9 && f9 == 'n')
+            {
+                pB9.Image = Resources.O;
+                pB9.Refresh();
+                player = false;
+            }
+        }
+        int Random() { int rnd = new Random().Next(1, 9); return rnd; }
+        void Reset()
         {
             pB1.Image = pB2.Image = pB3.Image = pB4.Image = pB5.Image = pB6.Image = pB7.Image = pB8.Image = pB9.Image = Resources.None;
             pB1.Refresh(); pB2.Refresh(); pB3.Refresh(); pB4.Refresh(); pB5.Refresh(); pB6.Refresh(); pB7.Refresh(); pB8.Refresh(); pB9.Refresh();
@@ -86,16 +195,7 @@ namespace Tic_Tac_Toe
             clicks = 0;
             player = false;
         }
-        void resign()
-        {
-            reset();
-            labelScoreP1.Text = labelScoreP2.Text = "0";
-            Hide();
-            Form1 form1 = new Form1();
-            form1.ShowDialog();
-            Close();
-        }
-        bool hasWon(char symbol)
+        bool HasWon(char symbol)
         {
             char[][] winChecks = new char[][]
             {
@@ -118,24 +218,24 @@ namespace Tic_Tac_Toe
             }
             return false;
         }
-        void win()
+        void Win()
         {
-            if (hasWon('x'))
+            if (HasWon('x'))
             {
                 labelScoreP1.Text = Convert.ToString(Convert.ToByte(labelScoreP1.Text) + 1);
                 MessageBox.Show("Red has won!");
-                reset();
+                Reset();
             }
-            if (hasWon('o'))
+            if (HasWon('o'))
             {
                 labelScoreP2.Text = Convert.ToString(Convert.ToByte(labelScoreP2.Text) + 1);
                 MessageBox.Show("Blue has won!");
-                reset();
+                Reset();
             }
             if (clicks == 9)
             {
                 MessageBox.Show("Tie!");
-                reset();
+                Reset();
             }
         }
     }
