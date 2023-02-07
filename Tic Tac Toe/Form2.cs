@@ -35,31 +35,31 @@ namespace Tic_Tac_Toe
                 switch (pb.Name)
                 {
                     case "pB1":
-                        f1 = Click(f1, pb);
+                        f1 = OnClick(f1, pb);
                         break;
                     case "pB2":
-                        f2 = Click(f2, pb);
+                        f2 = OnClick(f2, pb);
                         break;
                     case "pB3":
-                        f3 = Click(f3, pb);
+                        f3 = OnClick(f3, pb);
                         break;
                     case "pB4":
-                        f4 = Click(f4, pb);
+                        f4 = OnClick(f4, pb);
                         break;
                     case "pB5":
-                        f5 = Click(f5, pb);
+                        f5 = OnClick(f5, pb);
                         break;
                     case "pB6":
-                        f6 = Click(f6, pb);
+                        f6 = OnClick(f6, pb);
                         break;
                     case "pB7":
-                        f7 = Click(f7, pb);
+                        f7 = OnClick(f7, pb);
                         break;
                     case "pB8":
-                        f8 = Click(f8, pb);
+                        f8 = OnClick(f8, pb);
                         break;
                     case "pB9":
-                        f9 = Click(f9, pb);
+                        f9 = OnClick(f9, pb);
                         break;
                 }
             }
@@ -68,48 +68,47 @@ namespace Tic_Tac_Toe
                 switch (pb.Name)
                 {
                     case "pB1":
-                        f1 = Click(f1, pb);
+                        f1 = OnClick(f1, pb);
                         ClickKI();                      
                         break;
                     case "pB2":
-                        f2 = Click(f2, pb);
+                        f2 = OnClick(f2, pb);
                         ClickKI();
                         break;
                     case "pB3":
-                        f3 = Click(f3, pb);
+                        f3 = OnClick(f3, pb);
                         ClickKI();
                         break;
                     case "pB4":
-                        f4 = Click(f4, pb);
+                        f4 = OnClick(f4, pb);
                         ClickKI();
                         break;
                     case "pB5":
-                        f5 = Click(f5, pb);
+                        f5 = OnClick(f5, pb);
                         ClickKI();
                         break;
                     case "pB6":
-                        f6 = Click(f6, pb);
+                        f6 = OnClick(f6, pb);
                         ClickKI();
                         break;
                     case "pB7":
-                        f7 = Click(f7, pb);
+                        f7 = OnClick(f7, pb);
                         ClickKI();
                         break;
                     case "pB8":
-                        f8 = Click(f8, pb);
+                        f8 = OnClick(f8, pb);
                         ClickKI();
                         break;
                     case "pB9":
-                        f9 = Click(f9, pb);
+                        f9 = OnClick(f9, pb);
                         ClickKI();
                         break;
                 }
             }
-            
             Win();
         }
 
-        char Click(char field, PictureBox pB)
+        char OnClick(char field, PictureBox pB)
         {
             if (field == 'n' && player == false)
             {
@@ -131,61 +130,22 @@ namespace Tic_Tac_Toe
         }
         void ClickKI()
         {
-            if (Random() == 1 && f1 == 'n')
+            for (bool erg = true; erg;)
             {
-                pB1.Image = Resources.O;
-                pB1.Refresh();
-                player = false;
-            }
-            else if (Random() == 2 && f2 == 'n')
-            {
-                pB2.Image = Resources.O;
-                pB2.Refresh();
-                player = false;
-            }
-            else if (Random() == 3 && f3 == 'n')
-            {
-                pB3.Image = Resources.O;
-                pB3.Refresh();
-                player = false;
-            }
-            else if (Random() == 4 && f4 == 'n')
-            {
-                pB4.Image = Resources.O;
-                pB4.Refresh();
-                player = false;
-            }
-            else if (Random() == 5 && f5 == 'n')
-            {
-                pB5.Image = Resources.O;
-                pB5.Refresh();
-                player = false;
-            }
-            else if (Random() == 6 && f6 == 'n')
-            {
-                pB6.Image = Resources.O;
-                pB6.Refresh();
-                player = false;
-            }
-            else if (Random() == 7 && f7 == 'n')
-            {
-                pB7.Image = Resources.O;
-                pB7.Refresh();
-                player = false;
-            }
-            else if (Random() == 8 && f8 == 'n')
-            {
-                pB8.Image = Resources.O;
-                pB8.Refresh();
-                player = false;
-            }
-            else if (Random() == 9 && f9 == 'n')
-            {
-                pB9.Image = Resources.O;
-                pB9.Refresh();
-                player = false;
+                int randomNum = Random();
+                char f = randomNum == 1 ? f1 : randomNum == 2 ? f2 : randomNum == 3 ? f3 :
+                           randomNum == 4 ? f4 : randomNum == 5 ? f5 : randomNum == 6 ? f6 :
+                           randomNum == 7 ? f7 : randomNum == 8 ? f8 : f9;
+                if (randomNum >= 1 && randomNum <= 9 && f == 'n')
+                {
+                    pB1.Image = Resources.O;
+                    pB1.Refresh();
+                    player = false;
+                    erg = false;
+                }
             }
         }
+
         int Random() { int rnd = new Random().Next(1, 9); return rnd; }
         void Reset()
         {
