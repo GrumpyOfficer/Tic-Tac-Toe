@@ -11,7 +11,7 @@ namespace Tic_Tac_Toe
         {
             InitializeComponent(); 
             Reset();
-            nameP1.Text = nameP2.Text = Form1.form1Instance.tbx.Text;
+            nameP1.Text = Form1.form1Instance.tbx.Text;
         }
 
         char f1, f2, f3, f4, f5, f6, f7, f8, f9;
@@ -62,6 +62,7 @@ namespace Tic_Tac_Toe
                         f9 = OnClick(f9, pb);
                         break;
                 }
+                Win();
             }
             if (Form1.form1Instance.cmb.Text == "Computer")
             {
@@ -104,8 +105,8 @@ namespace Tic_Tac_Toe
                         ClickKI();
                         break;
                 }
+                Win();
             }
-            Win();
         }
 
         char OnClick(char field, PictureBox pB)
@@ -130,23 +131,81 @@ namespace Tic_Tac_Toe
         }
         void ClickKI()
         {
-            for (bool erg = true; erg;)
+            bool erg = true;
+            while (erg)
             {
-                int randomNum = Random();
-                char f = randomNum == 1 ? f1 : randomNum == 2 ? f2 : randomNum == 3 ? f3 :
-                           randomNum == 4 ? f4 : randomNum == 5 ? f5 : randomNum == 6 ? f6 :
-                           randomNum == 7 ? f7 : randomNum == 8 ? f8 : f9;
-                if (randomNum >= 1 && randomNum <= 9 && f == 'n')
+                if (Random() == 1 && f1 == 'n')
                 {
                     pB1.Image = Resources.O;
                     pB1.Refresh();
                     player = false;
                     erg = false;
                 }
+                else if (Random() == 2 && f2 == 'n')
+                {
+                    pB2.Image = Resources.O;
+                    pB2.Refresh();
+                    player = false;
+                    erg = false;
+                }
+                else if (Random() == 3 && f3 == 'n')
+                {
+                    pB3.Image = Resources.O;
+                    pB3.Refresh();
+                    player = false;
+                    erg = false;
+                }
+                else if (Random() == 4 && f4 == 'n')
+                {
+                    pB4.Image = Resources.O;
+                    pB4.Refresh();
+                    player = false;
+                    erg = false;
+                }
+                else if (Random() == 5 && f5 == 'n')
+                {
+                    pB5.Image = Resources.O;
+                    pB5.Refresh();
+                    player = false;
+                    erg = false;
+                }
+                else if (Random() == 6 && f6 == 'n')
+                {
+                    pB6.Image = Resources.O;
+                    pB6.Refresh();
+                    player = false;
+                    erg = false;
+                }
+                else if (Random() == 7 && f7 == 'n')
+                {
+                    pB7.Image = Resources.O;
+                    pB7.Refresh();
+                    player = false;
+                    erg = false;
+                }
+                else if (Random() == 8 && f8 == 'n')
+                {
+                    pB8.Image = Resources.O;
+                    pB8.Refresh();
+                    player = false;
+                    erg = false;
+                }
+                else if (Random() == 9 && f9 == 'n')
+                {
+                    pB9.Image = Resources.O;
+                    pB9.Refresh();
+                    player = false;
+                    erg = false;
+                }
+                else { erg = true; }
             }
         }
 
-        int Random() { int rnd = new Random().Next(1, 9); return rnd; }
+        int Random() 
+        { 
+            int rnd = new Random().Next(1, 9); 
+            return rnd; 
+        }
         void Reset()
         {
             pB1.Image = pB2.Image = pB3.Image = pB4.Image = pB5.Image = pB6.Image = pB7.Image = pB8.Image = pB9.Image = Resources.None;
@@ -163,7 +222,7 @@ namespace Tic_Tac_Toe
                 new char[] {f4, f5, f6 },
                 new char[] {f7, f8, f9 },
                 new char[] {f1, f5, f9 },
-                new char[] {f4, f5, f7 },
+                new char[] {f3, f5, f7 },
                 new char[] {f1, f4, f7 },
                 new char[] {f2, f5, f8 },
                 new char[] {f4, f6, f9 },

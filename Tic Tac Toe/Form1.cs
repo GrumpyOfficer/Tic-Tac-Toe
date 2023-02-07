@@ -52,7 +52,7 @@ namespace Tic_Tac_Toe
         }
         void SetPlayers()
         {
-            string[] players = {"", "Computer", "Solo" };
+            string[] players = {"Computer", "Solo" };
             for (int i=0; i < players.Length; i++) 
             {
                 comboBox1.Items.Add(players[i]);
