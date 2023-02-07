@@ -91,18 +91,20 @@
             // labelScoreP2
             // 
             this.labelScoreP2.AutoSize = true;
+            this.labelScoreP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelScoreP2.Location = new System.Drawing.Point(161, 41);
             this.labelScoreP2.Name = "labelScoreP2";
-            this.labelScoreP2.Size = new System.Drawing.Size(13, 13);
+            this.labelScoreP2.Size = new System.Drawing.Size(14, 13);
             this.labelScoreP2.TabIndex = 51;
             this.labelScoreP2.Text = "0";
             // 
             // labelScoreP1
             // 
             this.labelScoreP1.AutoSize = true;
+            this.labelScoreP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelScoreP1.Location = new System.Drawing.Point(12, 41);
             this.labelScoreP1.Name = "labelScoreP1";
-            this.labelScoreP1.Size = new System.Drawing.Size(13, 13);
+            this.labelScoreP1.Size = new System.Drawing.Size(14, 13);
             this.labelScoreP1.TabIndex = 50;
             this.labelScoreP1.Text = "0";
             // 
@@ -268,7 +270,7 @@
             this.Controls.Add(this.btnReset);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form2";
-            this.Text = "Tic Tac Toe";
+            this.Text = "TTT Game";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB9)).EndInit();

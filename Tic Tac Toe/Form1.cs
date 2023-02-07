@@ -13,11 +13,12 @@ namespace Tic_Tac_Toe
             InitializeComponent();
             form1Instance = this;
             tbx = textBox1;
+            SetPlayers();
         }
 
         private void button1_Click(object sender, System.EventArgs e)
         {
-            bool error=false;
+            bool error=true;
             if(textBox1.Text.Length < 1)
             {
                 textBox1.BackColor = Color.LightCoral;
@@ -46,6 +47,14 @@ namespace Tic_Tac_Toe
             Form2 form2 = new Form2();
             form2.ShowDialog();
             Close();
+        }
+        void SetPlayers()
+        {
+            string[] players = {"Test1", "Test2"};
+            for (int i=0; i < players.Length; i++) 
+            {
+                comboBox1.Items.Add(players[i]);
+            }            
         }
     }
 }
