@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Tic_Tac_Toe.Properties;
@@ -131,81 +132,26 @@ namespace Tic_Tac_Toe
         }
         void ClickKI()
         {
-            bool erg = true;
-            while (erg)
+            int[] validSlots = new int[9];
+            if (f1 == 'n') { validSlots[0] = 1; } else { validSlots[0] = 0; }
+            if (f2 == 'n') { validSlots[1] = 2; } else { validSlots[1] = 0; }
+            if (f3 == 'n') { validSlots[2] = 3; } else { validSlots[2] = 0; }
+            if (f4 == 'n') { validSlots[3] = 4; } else { validSlots[3] = 0; }
+            if (f5 == 'n') { validSlots[4] = 5; } else { validSlots[4] = 0; }
+            if (f6 == 'n') { validSlots[5] = 6; } else { validSlots[5] = 0; }
+            if (f7 == 'n') { validSlots[6] = 7; } else { validSlots[6] = 0; }
+            if (f8 == 'n') { validSlots[7] = 8; } else { validSlots[7] = 0; }
+            if (f9 == 'n') { validSlots[8] = 9; } else { validSlots[8] = 0; }
+
+            byte random = (byte)new Random().Next(1, 9);
+            List<PictureBox> pbList = new List<PictureBox>() {pB1, pB2, pB3, pB4, pB5, pB6, pB7, pB8, pB9};
+
+            if (validSlots.Contains(random))
             {
-                if (Random() == 1 && f1 == 'n')
-                {
-                    pB1.Image = Resources.O;
-                    pB1.Refresh();
-                    player = false;
-                    erg = false;
-                }
-                else if (Random() == 2 && f2 == 'n')
-                {
-                    pB2.Image = Resources.O;
-                    pB2.Refresh();
-                    player = false;
-                    erg = false;
-                }
-                else if (Random() == 3 && f3 == 'n')
-                {
-                    pB3.Image = Resources.O;
-                    pB3.Refresh();
-                    player = false;
-                    erg = false;
-                }
-                else if (Random() == 4 && f4 == 'n')
-                {
-                    pB4.Image = Resources.O;
-                    pB4.Refresh();
-                    player = false;
-                    erg = false;
-                }
-                else if (Random() == 5 && f5 == 'n')
-                {
-                    pB5.Image = Resources.O;
-                    pB5.Refresh();
-                    player = false;
-                    erg = false;
-                }
-                else if (Random() == 6 && f6 == 'n')
-                {
-                    pB6.Image = Resources.O;
-                    pB6.Refresh();
-                    player = false;
-                    erg = false;
-                }
-                else if (Random() == 7 && f7 == 'n')
-                {
-                    pB7.Image = Resources.O;
-                    pB7.Refresh();
-                    player = false;
-                    erg = false;
-                }
-                else if (Random() == 8 && f8 == 'n')
-                {
-                    pB8.Image = Resources.O;
-                    pB8.Refresh();
-                    player = false;
-                    erg = false;
-                }
-                else if (Random() == 9 && f9 == 'n')
-                {
-                    pB9.Image = Resources.O;
-                    pB9.Refresh();
-                    player = false;
-                    erg = false;
-                }
-                else { erg = true; }
+                pbList[random].Image = Resources.O;
             }
         }
 
-        int Random() 
-        { 
-            int rnd = new Random().Next(1, 9); 
-            return rnd; 
-        }
         void Reset()
         {
             pB1.Image = pB2.Image = pB3.Image = pB4.Image = pB5.Image = pB6.Image = pB7.Image = pB8.Image = pB9.Image = Resources.None;
