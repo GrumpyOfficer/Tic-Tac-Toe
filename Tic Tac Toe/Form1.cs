@@ -17,15 +17,25 @@ namespace Tic_Tac_Toe
 
         private void button1_Click(object sender, System.EventArgs e)
         {
-            if(textBox1.Text.Length < 1 || textBox1.Text.Length > 7)
+            bool error=false;
+            if(textBox1.Text.Length < 1)
             {
                 textBox1.BackColor = Color.LightCoral;
+                MessageBox.Show("To short!");
+                error=false;
             }
-            else if (comboBox1.Text.Length < 1)
+            if (textBox1.Text.Length > 7)
+            {
+                MessageBox.Show("To long!");
+                error=false;
+            }
+            if (comboBox1.Text.Length < 1)
             {
                 comboBox1.BackColor = Color.LightCoral;
+                MessageBox.Show("Select opponent!");
+                error=false;
             }
-            else
+            if(error)
             {
                 ChangeWindow();
             }
