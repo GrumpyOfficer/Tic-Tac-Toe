@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Tic_Tac_Toe.Properties;
 
@@ -133,29 +134,43 @@ namespace Tic_Tac_Toe
         void ClickKI()
         {
             int[] validSlots = new int[9];
-            if (f1 == 'n') { validSlots[0] = 1; } else { validSlots[0] = 0; }
-            if (f2 == 'n') { validSlots[1] = 2; } else { validSlots[1] = 0; }
-            if (f3 == 'n') { validSlots[2] = 3; } else { validSlots[2] = 0; }
-            if (f4 == 'n') { validSlots[3] = 4; } else { validSlots[3] = 0; }
-            if (f5 == 'n') { validSlots[4] = 5; } else { validSlots[4] = 0; }
-            if (f6 == 'n') { validSlots[5] = 6; } else { validSlots[5] = 0; }
-            if (f7 == 'n') { validSlots[6] = 7; } else { validSlots[6] = 0; }
-            if (f8 == 'n') { validSlots[7] = 8; } else { validSlots[7] = 0; }
-            if (f9 == 'n') { validSlots[8] = 9; } else { validSlots[8] = 0; }
+            char[] f = { f1, f2, f3, f4, f5, f6, f7, f8, f9 };
 
-            byte random = (byte)new Random().Next(1, 9);
-            List<PictureBox> pbList = new List<PictureBox>() {pB1, pB2, pB3, pB4, pB5, pB6, pB7, pB8, pB9};
-
-            if (validSlots.Contains(random))
+            for (int i = 0; i < 9; i++)
             {
-                pbList[random].Image = Resources.O;
+                if (f[i] == 'n')
+                {
+                    validSlots[i] = i+1;
+                }
+                else { validSlots[i] = 0; }
+            }
+
+            byte random = (byte)new Random().Next(0, 9);
+            List<PictureBox> pbList = new List<PictureBox>() {pB1, pB2, pB3, pB4, pB5, pB6, pB7, pB8, pB9};
+            List<char> fList = new List<char>() {f1, f2, f3, f4, f5, f6, f7, f8, f9};
+
+            bool check = false;
+            while (check == false)
+            {
+                if (validSlots.Contains(random))
+                {
+                    pbList[random - 1].Image = Resources.O;
+                    fList[random - 1] = 'o';
+                    clicks++;
+                    player = false;
+                    check = true;
+                }
             }
         }
 
         void Reset()
         {
-            pB1.Image = pB2.Image = pB3.Image = pB4.Image = pB5.Image = pB6.Image = pB7.Image = pB8.Image = pB9.Image = Resources.None;
-            pB1.Refresh(); pB2.Refresh(); pB3.Refresh(); pB4.Refresh(); pB5.Refresh(); pB6.Refresh(); pB7.Refresh(); pB8.Refresh(); pB9.Refresh();
+            List<PictureBox> pbList = new List<PictureBox>() { pB1, pB2, pB3, pB4, pB5, pB6, pB7, pB8, pB9 };
+            for(int i = pbList.Count; i < pbList.Count; i--)
+            {
+                pbList[i].Image = Resources.O;
+                pbList[i].Refresh();
+            }
             f1 = f2 = f3 = f4 = f5 = f6 = f7 = f8 = f9 = 'n';
             clicks = 0;
             player = false;
