@@ -11,7 +11,7 @@ namespace Tic_Tac_Toe
         {
             InitializeComponent(); 
             reset();
-            nameP1.Text = Form1.form1Instance.tbx.Text;
+            nameP1.Text = nameP2.Text = Form1.form1Instance.tbx.Text;
         }
 
         char f1, f2, f3, f4, f5, f6, f7, f8, f9;

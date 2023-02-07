@@ -17,7 +17,7 @@ namespace Tic_Tac_Toe
 
         private void button1_Click(object sender, System.EventArgs e)
         {
-            if(textBox1.Text.Length < 1)
+            if(textBox1.Text.Length < 1 || textBox1.Text.Length > 7)
             {
                 textBox1.BackColor = Color.LightCoral;
             }

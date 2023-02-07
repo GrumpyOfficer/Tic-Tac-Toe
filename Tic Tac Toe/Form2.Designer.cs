@@ -31,8 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.nameP2 = new System.Windows.Forms.Label();
-            this.nameP1 = new System.Windows.Forms.Label();
             this.labelScoreP2 = new System.Windows.Forms.Label();
             this.labelScoreP1 = new System.Windows.Forms.Label();
             this.pB9 = new System.Windows.Forms.PictureBox();
@@ -45,6 +43,8 @@
             this.pB2 = new System.Windows.Forms.PictureBox();
             this.pB1 = new System.Windows.Forms.PictureBox();
             this.btnReset = new System.Windows.Forms.Button();
+            this.nameP1 = new System.Windows.Forms.Label();
+            this.nameP2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB9)).BeginInit();
@@ -87,24 +87,6 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 54;
             this.pictureBox4.TabStop = false;
-            // 
-            // nameP2
-            // 
-            this.nameP2.AutoSize = true;
-            this.nameP2.Location = new System.Drawing.Point(113, 41);
-            this.nameP2.Name = "nameP2";
-            this.nameP2.Size = new System.Drawing.Size(42, 13);
-            this.nameP2.TabIndex = 53;
-            this.nameP2.Text = "Player2";
-            // 
-            // nameP1
-            // 
-            this.nameP1.AutoSize = true;
-            this.nameP1.Location = new System.Drawing.Point(31, 41);
-            this.nameP1.Name = "nameP1";
-            this.nameP1.Size = new System.Drawing.Size(42, 13);
-            this.nameP1.TabIndex = 52;
-            this.nameP1.Text = "Player1";
             // 
             // labelScoreP2
             // 
@@ -242,6 +224,26 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // nameP1
+            // 
+            this.nameP1.AutoSize = true;
+            this.nameP1.Location = new System.Drawing.Point(31, 41);
+            this.nameP1.Name = "nameP1";
+            this.nameP1.Size = new System.Drawing.Size(42, 13);
+            this.nameP1.TabIndex = 52;
+            this.nameP1.Text = "Player1";
+            this.nameP1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // nameP2
+            // 
+            this.nameP2.AutoSize = true;
+            this.nameP2.Location = new System.Drawing.Point(113, 41);
+            this.nameP2.Name = "nameP2";
+            this.nameP2.Size = new System.Drawing.Size(42, 13);
+            this.nameP2.TabIndex = 53;
+            this.nameP2.Text = "Player2";
+            this.nameP2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,8 +290,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label nameP2;
-        private System.Windows.Forms.Label nameP1;
         private System.Windows.Forms.Label labelScoreP2;
         private System.Windows.Forms.Label labelScoreP1;
         private System.Windows.Forms.PictureBox pB9;
@@ -302,5 +302,7 @@
         private System.Windows.Forms.PictureBox pB2;
         private System.Windows.Forms.PictureBox pB1;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Label nameP1;
+        private System.Windows.Forms.Label nameP2;
     }
 }
