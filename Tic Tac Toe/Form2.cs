@@ -211,20 +211,17 @@ namespace Tic_Tac_Toe
             {
                 labelScoreP1.Text = Convert.ToString(Convert.ToByte(labelScoreP1.Text) + 1);
                 MessageBox.Show("Red has won!");
-                Console.WriteLine("red has won");
                 Reset();
             }
             if (WinCheck('o'))
             {
                 labelScoreP2.Text = Convert.ToString(Convert.ToByte(labelScoreP2.Text) + 1);
                 MessageBox.Show("Blue has won!");
-                Console.WriteLine("blue has won");
                 Reset();
             }
             if (clicks == 9)
             {
                 MessageBox.Show("Tie!");
-                Console.WriteLine("tie");
                 Reset();
             }
         }
