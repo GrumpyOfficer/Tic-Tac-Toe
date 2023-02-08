@@ -135,19 +135,20 @@ namespace Tic_Tac_Toe
         }
         void ClickKI()
         {
+            byte random = (byte)new Random().Next(0, 9);
             List<PictureBox> pbList = new List<PictureBox>() {pB1, pB2, pB3, pB4, pB5, pB6, pB7, pB8, pB9};
             List<char> fList = new List<char>() {f1, f2, f3, f4, f5, f6, f7, f8, f9};
-
             bool check = false;
             while(check == false)
-            {
+            while (check == false)
                 int rnd = random();
                 if (fList[rnd] == 'n')
-                {
+                if (validSlots.Contains(random))
                     fList[rnd] = 'o';
                     pbList[rnd].Image = Resources.O;
                     check = true;
                     player = false; 
+                    check = true;
                 }
             }
             f1 = fList[0];
