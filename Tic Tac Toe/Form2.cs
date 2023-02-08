@@ -145,13 +145,14 @@ namespace Tic_Tac_Toe
                 else { validSlots[i] = 0; }
             }
 
-            byte random = (byte)new Random().Next(0, 9);
             List<PictureBox> pbList = new List<PictureBox>() {pB1, pB2, pB3, pB4, pB5, pB6, pB7, pB8, pB9};
             List<char> fList = new List<char>() {f1, f2, f3, f4, f5, f6, f7, f8, f9};
 
             bool check = false;
             while (check == false)
             {
+                byte random = (byte)new Random().Next(1, 9);
+                Console.WriteLine(random);
                 if (validSlots.Contains(random))
                 {
                     pbList[random - 1].Image = Resources.O;
@@ -162,13 +163,12 @@ namespace Tic_Tac_Toe
                 }
             }
         }
-
         void Reset()
         {
             List<PictureBox> pbList = new List<PictureBox>() { pB1, pB2, pB3, pB4, pB5, pB6, pB7, pB8, pB9 };
-            for(int i = pbList.Count; i < pbList.Count; i--)
+            for(int i = 0; i < pbList.Count; i++)
             {
-                pbList[i].Image = Resources.O;
+                pbList[i].Image = Resources.None;
                 pbList[i].Refresh();
             }
             f1 = f2 = f3 = f4 = f5 = f6 = f7 = f8 = f9 = 'n';
@@ -204,17 +204,20 @@ namespace Tic_Tac_Toe
             {
                 labelScoreP1.Text = Convert.ToString(Convert.ToByte(labelScoreP1.Text) + 1);
                 MessageBox.Show("Red has won!");
+                Console.WriteLine("red has won");
                 Reset();
             }
             if (HasWon('o'))
             {
                 labelScoreP2.Text = Convert.ToString(Convert.ToByte(labelScoreP2.Text) + 1);
                 MessageBox.Show("Blue has won!");
+                Console.WriteLine("blue has won");
                 Reset();
             }
             if (clicks == 9)
             {
                 MessageBox.Show("Tie!");
+                Console.WriteLine("tie");
                 Reset();
             }
         }
