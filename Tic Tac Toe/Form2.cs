@@ -154,6 +154,7 @@ namespace Tic_Tac_Toe
                     pbList[rnd].Image = Resources.O;
                     pbList[rnd].Refresh();
                     player = false;
+                    clicks++;
                     return rnd;
                 }
             }
