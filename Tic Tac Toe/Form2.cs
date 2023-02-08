@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Tic_Tac_Toe.Properties;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace Tic_Tac_Toe
 {
@@ -14,6 +15,7 @@ namespace Tic_Tac_Toe
             InitializeComponent(); 
             Reset();
             nameP1.Text = Form1.form1Instance.tbx.Text;
+            ClickKI();
         }
 
         char f1, f2, f3, f4, f5, f6, f7, f8, f9;
@@ -133,35 +135,37 @@ namespace Tic_Tac_Toe
         }
         void ClickKI()
         {
-            int[] validSlots = new int[9];
-            char[] f = { f1, f2, f3, f4, f5, f6, f7, f8, f9 };
-
-            for (int i = 0; i < 9; i++)
-            {
-                if (f[i] == 'n')
-                {
-                    validSlots[i] = i+1;
-                }
-                else { validSlots[i] = 0; }
-            }
-
             List<PictureBox> pbList = new List<PictureBox>() {pB1, pB2, pB3, pB4, pB5, pB6, pB7, pB8, pB9};
             List<char> fList = new List<char>() {f1, f2, f3, f4, f5, f6, f7, f8, f9};
 
             bool check = false;
-            while (check == false)
+            while(check == false)
             {
-                byte random = (byte)new Random().Next(1, 9);
-                Console.WriteLine(random);
-                if (validSlots.Contains(random))
+                int rnd = random();
+                if (fList[rnd] == 'n')
                 {
-                    pbList[random - 1].Image = Resources.O;
-                    fList[random - 1] = 'o';
-                    clicks++;
-                    player = false;
+                    fList[rnd] = 'o';
+                    pbList[rnd].Image = Resources.O;
                     check = true;
+                    player = false; 
                 }
             }
+            f1 = fList[0];
+            f2 = fList[1];
+            f3 = fList[2];
+            f4 = fList[3];
+            f5 = fList[4];
+            f6 = fList[5];
+            f7 = fList[6];
+            f8 = fList[7];
+            f9 = fList[8];
+        }
+
+        int random()
+        {
+            Random r = new Random();
+            int rnd = r.Next(0, 8);
+            return rnd;
         }
         void Reset()
         {
