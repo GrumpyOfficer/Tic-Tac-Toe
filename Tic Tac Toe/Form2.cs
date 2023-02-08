@@ -15,7 +15,6 @@ namespace Tic_Tac_Toe
             InitializeComponent(); 
             Reset();
             nameP1.Text = Form1.form1Instance.tbx.Text;
-            ClickKI();
         }
 
         char f1, f2, f3, f4, f5, f6, f7, f8, f9;
@@ -74,42 +73,50 @@ namespace Tic_Tac_Toe
                 {
                     case "pB1":
                         f1 = OnClick(f1, pb);
-                        ClickKI();                      
+                        CheckAndSet(ClickKI());
+                        Win();
                         break;
                     case "pB2":
                         f2 = OnClick(f2, pb);
-                        ClickKI();
+                        CheckAndSet(ClickKI());
+                        Win();
                         break;
                     case "pB3":
                         f3 = OnClick(f3, pb);
-                        ClickKI();
+                        CheckAndSet(ClickKI());
+                        Win();
                         break;
                     case "pB4":
                         f4 = OnClick(f4, pb);
-                        ClickKI();
+                        CheckAndSet(ClickKI());
+                        Win();
                         break;
                     case "pB5":
                         f5 = OnClick(f5, pb);
-                        ClickKI();
+                        CheckAndSet(ClickKI());
+                        Win();
                         break;
                     case "pB6":
                         f6 = OnClick(f6, pb);
-                        ClickKI();
+                        CheckAndSet(ClickKI());
+                        Win();
                         break;
                     case "pB7":
                         f7 = OnClick(f7, pb);
-                        ClickKI();
+                        CheckAndSet(ClickKI());
+                        Win();
                         break;
                     case "pB8":
                         f8 = OnClick(f8, pb);
-                        ClickKI();
+                        CheckAndSet(ClickKI());
+                        Win();
                         break;
                     case "pB9":
                         f9 = OnClick(f9, pb);
-                        ClickKI();
+                        CheckAndSet(ClickKI());
+                        Win();
                         break;
                 }
-                Win();
             }
         }
 
@@ -133,40 +140,35 @@ namespace Tic_Tac_Toe
             }
             return field;
         }
-        void ClickKI()
+        int ClickKI()
         {
-            byte random = (byte)new Random().Next(0, 9);
             List<PictureBox> pbList = new List<PictureBox>() {pB1, pB2, pB3, pB4, pB5, pB6, pB7, pB8, pB9};
             List<char> fList = new List<char>() {f1, f2, f3, f4, f5, f6, f7, f8, f9};
-            bool check = false;
-            while(check == false)
-            while (check == false)
-                int rnd = random();
+            Random r = new Random();
+            
+            while (true) 
+            {
+                int rnd = r.Next(0, 8);
                 if (fList[rnd] == 'n')
-                if (validSlots.Contains(random))
-                    fList[rnd] = 'o';
+                {
                     pbList[rnd].Image = Resources.O;
-                    check = true;
-                    player = false; 
-                    check = true;
+                    pbList[rnd].Refresh();
+                    player = false;
+                    return rnd;
                 }
             }
-            f1 = fList[0];
-            f2 = fList[1];
-            f3 = fList[2];
-            f4 = fList[3];
-            f5 = fList[4];
-            f6 = fList[5];
-            f7 = fList[6];
-            f8 = fList[7];
-            f9 = fList[8];
         }
-
-        int random()
+        void CheckAndSet(int p)
         {
-            Random r = new Random();
-            int rnd = r.Next(0, 8);
-            return rnd;
+            if (p == 0) { f1 = 'o'; }
+            if (p == 1) { f2 = 'o'; }
+            if (p == 2) { f3 = 'o'; }
+            if (p == 3) { f4 = 'o'; }
+            if (p == 4) { f5 = 'o'; }
+            if (p == 5) { f6 = 'o'; }
+            if (p == 6) { f7 = 'o'; }
+            if (p == 7) { f8 = 'o'; }
+            if (p == 8) { f9 = 'o'; }
         }
         void Reset()
         {
@@ -180,7 +182,7 @@ namespace Tic_Tac_Toe
             clicks = 0;
             player = false;
         }
-        bool HasWon(char symbol)
+        bool WinCheck(char symbol)
         {
             char[][] winChecks = new char[][]
             {
@@ -205,14 +207,14 @@ namespace Tic_Tac_Toe
         }
         void Win()
         {
-            if (HasWon('x'))
+            if (WinCheck('x'))
             {
                 labelScoreP1.Text = Convert.ToString(Convert.ToByte(labelScoreP1.Text) + 1);
                 MessageBox.Show("Red has won!");
                 Console.WriteLine("red has won");
                 Reset();
             }
-            if (HasWon('o'))
+            if (WinCheck('o'))
             {
                 labelScoreP2.Text = Convert.ToString(Convert.ToByte(labelScoreP2.Text) + 1);
                 MessageBox.Show("Blue has won!");
