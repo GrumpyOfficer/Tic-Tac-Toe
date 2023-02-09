@@ -125,6 +125,7 @@ namespace Tic_Tac_Toe
             if (field == 'n' && player == false)
             {
                 pB.Image = Resources.X;
+                pB.Enabled = false;
                 pB.Refresh();
                 field = 'x';
                 clicks++;
@@ -133,6 +134,7 @@ namespace Tic_Tac_Toe
             else if (field == 'n' && player)
             {
                 pB.Image = Resources.O;
+                pB.Enabled= false;
                 pB.Refresh();
                 field = 'o';
                 clicks++;
@@ -153,6 +155,7 @@ namespace Tic_Tac_Toe
                 {
                     pbList[rnd].Image = Resources.O;
                     pbList[rnd].Refresh();
+                    pbList[rnd].Enabled= false;
                     player = false;
                     clicks++;
                     return rnd;
@@ -177,6 +180,7 @@ namespace Tic_Tac_Toe
             for(int i = 0; i < pbList.Count; i++)
             {
                 pbList[i].Image = Resources.None;
+                pbList[i].Enabled = true;
                 pbList[i].Refresh();
             }
             f1 = f2 = f3 = f4 = f5 = f6 = f7 = f8 = f9 = 'n';
@@ -187,14 +191,17 @@ namespace Tic_Tac_Toe
         {
             char[][] winChecks = new char[][]
             {
+                //horizontals
                 new char[] {f1, f2, f3 },
                 new char[] {f4, f5, f6 },
                 new char[] {f7, f8, f9 },
-                new char[] {f1, f5, f9 },
-                new char[] {f3, f5, f7 },
+                //verticals
                 new char[] {f1, f4, f7 },
                 new char[] {f2, f5, f8 },
-                new char[] {f4, f6, f9 },
+                new char[] {f3, f6, f9 },
+                //diagonals
+                new char[] {f1, f5, f9 },
+                new char[] {f3, f5, f7 },
             };
 
             foreach (var winCheck in winChecks)
