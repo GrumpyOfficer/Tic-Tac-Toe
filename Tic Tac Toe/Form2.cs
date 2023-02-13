@@ -73,48 +73,75 @@ namespace Tic_Tac_Toe
                 {
                     case "pB1":
                         f1 = OnClick(f1, pb);
-                        CheckAndSet(ClickKI());
-                        Win();
+                        if (!Win())
+                        {
+                            CheckAndSet(ClickKI());
+                            Win();
+                        }
                         break;
                     case "pB2":
                         f2 = OnClick(f2, pb);
-                        CheckAndSet(ClickKI());
-                        Win();
+                        if (!Win())
+                        {
+                            CheckAndSet(ClickKI());
+                            Win();
+                        }
                         break;
                     case "pB3":
                         f3 = OnClick(f3, pb);
-                        CheckAndSet(ClickKI());
-                        Win();
+                        if (!Win())
+                        {
+                            CheckAndSet(ClickKI());
+                            Win();
+                        }
                         break;
                     case "pB4":
                         f4 = OnClick(f4, pb);
-                        CheckAndSet(ClickKI());
-                        Win();
+                        if (!Win())
+                        {
+                            CheckAndSet(ClickKI());
+                            Win();
+                        }
                         break;
                     case "pB5":
                         f5 = OnClick(f5, pb);
-                        CheckAndSet(ClickKI());
-                        Win();
+                        if (!Win())
+                        {
+                            CheckAndSet(ClickKI());
+                            Win();
+                        }
                         break;
                     case "pB6":
                         f6 = OnClick(f6, pb);
-                        CheckAndSet(ClickKI());
-                        Win();
+                        if (!Win())
+                        {
+                            CheckAndSet(ClickKI());
+                            Win();
+                        }
                         break;
                     case "pB7":
                         f7 = OnClick(f7, pb);
-                        CheckAndSet(ClickKI());
-                        Win();
+                        if (!Win())
+                        {
+                            CheckAndSet(ClickKI());
+                            Win();
+                        }
                         break;
                     case "pB8":
                         f8 = OnClick(f8, pb);
-                        CheckAndSet(ClickKI());
-                        Win();
+                        if (!Win())
+                        {
+                            CheckAndSet(ClickKI());
+                            Win();
+                        }
                         break;
                     case "pB9":
                         f9 = OnClick(f9, pb);
-                        CheckAndSet(ClickKI());
-                        Win();
+                        if (!Win())
+                        {
+                            CheckAndSet(ClickKI());
+                            Win();
+                        }
                         break;
                 }
             }
@@ -213,24 +240,37 @@ namespace Tic_Tac_Toe
             }
             return false;
         }
-        void Win()
+        bool Win()
         {
-            if (WinCheck('x'))
+            if (!WinCheck('x'))
+            {
+                if (!WinCheck('o'))
+                {
+                    if (clicks == 9)
+                    {
+                        MessageBox.Show("Tie!");
+                        Reset();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    labelScoreP2.Text = Convert.ToString(Convert.ToByte(labelScoreP2.Text) + 1);
+                    MessageBox.Show("Blue has won!");
+                    Reset();
+                    return true;
+                }
+            }
+            else
             {
                 labelScoreP1.Text = Convert.ToString(Convert.ToByte(labelScoreP1.Text) + 1);
                 MessageBox.Show("Red has won!");
                 Reset();
-            }
-            if (WinCheck('o'))
-            {
-                labelScoreP2.Text = Convert.ToString(Convert.ToByte(labelScoreP2.Text) + 1);
-                MessageBox.Show("Blue has won!");
-                Reset();
-            }
-            if (clicks == 9)
-            {
-                MessageBox.Show("Tie!");
-                Reset();
+                return true;
             }
         }
     }
